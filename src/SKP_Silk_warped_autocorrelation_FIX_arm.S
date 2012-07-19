@@ -56,6 +56,7 @@ warping_Q16	.req	r3
 .set	sp_corr_ptr, 204 
 .set	sp_scale_ptr, 208 
 .set	sp_input_ptr, 212 
+.align	2
 .globl	SYM(SKP_Silk_warped_autocorrelation_FIX)
 SYM(SKP_Silk_warped_autocorrelation_FIX):
 	stmdb	sp!,  {r4-r10, fp, ip, lr}

@@ -53,6 +53,7 @@ val_length	.req	lr
 .set	sp_res_ptr, 4 
 .set	sp_coef_Q13_ptr, 8 
 .set	sp_input_ptr, 12 
+.align	2
 .globl	SYM(SKP_Silk_warped_LPC_analysis_filter_FIX)
 SYM(SKP_Silk_warped_LPC_analysis_filter_FIX):
 	stmdb	sp!,  {r4-r10, fp, ip, lr}

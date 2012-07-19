@@ -39,6 +39,7 @@ Y2			.req	sb
 outk1			.req	sl
 outk2			.req	ip
 
+.align	2
 .globl	SYM(SKP_Silk_allpass_int)
 SYM(SKP_Silk_allpass_int):
 	stmdb	sp!,  {r4-r10, fp, ip, lr}

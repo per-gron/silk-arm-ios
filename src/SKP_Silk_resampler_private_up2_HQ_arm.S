@@ -55,6 +55,7 @@ out1				.req	sl
 out2				.req	ip
 out				.req	lr
 
+.align	2
 .globl	SYM(SKP_Silk_resampler_private_up2_HQ)
 SYM(SKP_Silk_resampler_private_up2_HQ):
 	stmdb	sp!,  {r4-r10, fp, ip, lr}

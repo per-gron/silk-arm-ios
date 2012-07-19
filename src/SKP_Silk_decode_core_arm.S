@@ -54,6 +54,7 @@ val_subfr_length	.req	_r7
 val_LPC_order		.req	lr
 val_LPC_pred_Q10	.req	lr
 
+.align	2
 .globl	SYM(SKP_Silk_decode_short_term_prediction)
 SYM(SKP_Silk_decode_short_term_prediction):
 	stmdb	sp!,  {r4-r10, fp, ip, lr}

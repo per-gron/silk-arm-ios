@@ -36,6 +36,7 @@ shift		.req	r6
 nrg		.req	_r7
 idx		.req	r8
 
+.align	2
 .globl	SYM(SKP_Silk_sum_sqr_shift)
 SYM(SKP_Silk_sum_sqr_shift):
 	stmdb	sp!,  {r4-r8, fp, ip, lr}
@@ -53,7 +54,7 @@ SYM(SKP_Silk_sum_sqr_shift):
   sub		idx, idx, #1
 0:
   subs		idx, idx, #2
-  SKP_SMLAD	nrg, x0, x0, nrg
+  smlad		nrg, x0, x0, nrg
   ldrgt		x0, [r2], #4
   cmp		nrg, #0
   blt		1f
@@ -69,7 +70,7 @@ SYM(SKP_Silk_sum_sqr_shift):
   blt		5f
 3:
   subs		idx, idx, #2  
-  SKP_SMUAD	nrg_tmp, x0, x0
+  smuad		nrg_tmp, x0, x0
   ldrgt		x0, [r2], #4
   adds		nrg, nrg, nrg_tmp, asr shift
   movlt		nrg, nrg, lsr #2

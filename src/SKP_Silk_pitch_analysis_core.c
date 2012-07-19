@@ -28,6 +28,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 /***********************************************************
 * Pitch analyser function
 ********************************************************** */
+
 #include "SKP_Silk_SigProc_FIX.h"
 #include "SKP_Silk_pitch_est_defines.h"
 #include "SKP_Silk_common_pitch_est_defines.h"

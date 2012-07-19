@@ -42,6 +42,7 @@ val_ind			.req	r6
 
 const_int16_MAX	.req	r5
 
+.align	2
 .globl	SYM(SKP_Silk_int16_array_maxabs)
 SYM(SKP_Silk_int16_array_maxabs):
 	stmdb	sp!,  {r4-r6, fp, ip, lr}
@@ -219,6 +220,7 @@ val_ind			.req	r6
 val_return		.req	r0
 const_int16_MAX	.req	r5
 
+.align	2
 .globl	SYM(SKP_Silk_int16_array_maxabs)
 SYM(SKP_Silk_int16_array_maxabs):
 	stmdb	sp!,  {r4-r8, fp, ip, lr}

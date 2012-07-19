@@ -47,6 +47,7 @@ out2				.req	lr
 
 .set	sp_S, 0 
 .set	sp_coef, 4 
+.align	2
 .globl	SYM(SKP_Silk_resampler_private_ARMA4)
 SYM(SKP_Silk_resampler_private_ARMA4):
 	stmdb	sp!,  {r4-r10, fp, ip, lr}

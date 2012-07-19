@@ -47,6 +47,7 @@ out			.req	sl
 
 .set	sp_max_i, 0 
 .set	sp_inc, 4 
+.align	2
 .globl	SYM(SKP_Silk_resampler_private_IIR_FIR_INTERPOL)
 SYM(SKP_Silk_resampler_private_IIR_FIR_INTERPOL):
 	stmdb	sp!,  {r4-r10, fp, ip, lr}

@@ -38,6 +38,7 @@ val_slope			.req	r5
 val_PUT				.req	r4
 in_Q5_tmp			.req	r3
 
+.align	2
 .globl	SYM(SKP_Silk_sigm_Q15)
 SYM(SKP_Silk_sigm_Q15):
 	stmdb	sp!,  {r4-r7, fp, ip, lr}

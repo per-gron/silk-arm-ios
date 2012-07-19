@@ -40,6 +40,7 @@ A_Q140				.req	sb
 A_Q141				.req	sl
 
 .set	sp_S, 0 
+.align	2
 .globl	SYM(SKP_Silk_resampler_private_AR2)
 SYM(SKP_Silk_resampler_private_AR2):
 	stmdb	sp!,  {r4-r10, fp, ip, lr}

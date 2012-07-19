@@ -85,7 +85,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #endif
 
 #if __ARM_EABI__ 
-#define SKP_DIV32_arm __aeabi_idiv
+#define SKP_DIV32_arm __divsi3
 #endif
 
 /* Interfacing some asm directives to macros*/

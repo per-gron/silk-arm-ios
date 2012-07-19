@@ -35,6 +35,7 @@ pn1			.req	r4
 pn2			.req	r5
 lo			.req	r6
 hi			.req	r8
+.align	2
 .globl	SYM(SKP_Silk_A2NLSF_eval_poly)
 SYM(SKP_Silk_A2NLSF_eval_poly):
 	stmdb	sp!,  {r4-r8, fp, ip, lr}

@@ -41,6 +41,7 @@ tmp_len				.req	r5
 .set	sp_ptr_B, 4 
 .set	sp_ptr_S, 8 
 .set	sp_ptr_out, 12 
+.align	2
 .globl	SYM(SKP_Silk_MA_Prediction)
 SYM(SKP_Silk_MA_Prediction):
 	stmdb	sp!,  {r4-r10, fp, ip, lr}
@@ -652,6 +653,7 @@ val5_out_hi				.req	d21
 .set	sp13_ptr_B, 4 
 .set	sp13_ptr_S, 8 
 .set	sp13_ptr_out, 12 
+.align	2
 .globl	SYM(SKP_Silk_MA_Prediction_Q13)
 SYM(SKP_Silk_MA_Prediction_Q13):
 	stmdb	sp!,  {r4-r10, fp, ip, lr}
@@ -1009,6 +1011,7 @@ ma_new_s2	.req	r8
 .set	SAVE_S, 8 
 .set	SAVE_OUT, 12 
 
+.align	2
 .globl	SYM(SKP_Silk_MA_Prediction)
 SYM(SKP_Silk_MA_Prediction):
 	stmdb	sp!,  {r4-r10, fp, ip, lr}
@@ -1178,6 +1181,7 @@ maq13_s2_new	.req	r8
 .set	SAVE_B, 4 
 .set	SAVE_S, 8 
 .set	SAVE_OUT, 12 
+.align	2
 .globl	SYM(SKP_Silk_MA_Prediction_Q13)
 SYM(SKP_Silk_MA_Prediction_Q13):
 	stmdb	sp!,  {r4-r10, fp, ip, lr}
@@ -1327,6 +1331,7 @@ ma1q13_b_tmp	.req	r2
 .set	sp_pB, 36 
 .set	sp_pS, 40 
 .set	sp_pout, 44 
+.align	2
 .globl	SYM(SKP_Silk_LPC_analysis_filter)
 SYM(SKP_Silk_LPC_analysis_filter):
 	stmdb	sp!,  {r4-r10, fp, ip, lr}
@@ -1380,7 +1385,7 @@ pB_tmp		.req	_r7
 	sub		order, order, #4
 	mov		S_tmp2, S_val, lsr #16
 	strh	S_val, [r2], #2
-	SKP_SMLAD	out32, B_val, S_val, out32
+	smlad	out32, B_val, S_val, out32
 	ldr		S_val, [r2]
 1:
 	ldr		B_val, [r1], #4
@@ -1388,13 +1393,13 @@ pB_tmp		.req	_r7
 	ldr		S_tmp1, [r2, #4]
 	subs	order, order, #2
 	str		S_tmp2, [r2], #4	
-	SKP_SMLAD	out32, B_val, S_val, out32
+	smlad	out32, B_val, S_val, out32
 	mov		S_tmp2, S_val, lsr #16
 	mov		S_val, S_tmp1
 	bgt		1b
 	ldr		B_val, [r1]
 	add		S_tmp2, S_tmp2, S_val, lsl #16
-	SKP_SMLAD	out32, B_val, S_val, out32
+	smlad	out32, B_val, S_val, out32
 	str		S_tmp2, [r2]
 	
 	ldrsh	in, [r0], #2
@@ -1435,7 +1440,7 @@ pB_tmp		.req	_r7
 	add		S_val, S_val, S_tmp1, lsl #16
 	mov		S_tmp1, S_tmp1, lsr #16
 	str		S_val, [r2], #4
-	SKP_SMLAD	out32, B_val, S_val, out32
+	smlad	out32, B_val, S_val, out32
 1:
 	ldr		B_val, [r1], #4
 	add		S_val, S_tmp1, S_tmp2, lsl #16
@@ -1443,12 +1448,12 @@ pB_tmp		.req	_r7
 	subs	order, order, #2
 	ldrgt	S_tmp2, [r2, #4]
 	str		S_val, [r2], #4	
-	SKP_SMLAD	out32, B_val, S_val, out32
+	smlad	out32, B_val, S_val, out32
 	bgt		1b
 	ldrsh	S_tmp2, [r2]
 	ldr		B_val, [r1]
 	add		S_val, S_tmp1, S_tmp2, lsl #16
-	SKP_SMLAD	out32, B_val, S_val, out32
+	smlad	out32, B_val, S_val, out32
 	strh	S_val, [r2]
 	
 	ldrsh	in, [r0], #2

@@ -46,6 +46,7 @@ sum_tmp2				.req	q3
 sum_tmp1_lo				.req	d4
 sum_tmp1_hi				.req	d5
 
+.align	2
 .globl	SYM(SKP_Silk_inner_prod_aligned)
 SYM(SKP_Silk_inner_prod_aligned):
 	stmdb	sp!,  {r4-r10, fp, ip, lr}
@@ -158,6 +159,7 @@ accu1					.req	q5
 accu1_lo				.req	d10
 accu1_hi				.req	d11
 	
+.align	2
 .globl	SYM(SKP_Silk_inner_prod16_aligned_64)
 SYM(SKP_Silk_inner_prod16_aligned_64):
 	stmdb	sp!,  {r4-r10, fp, ip, lr}
@@ -300,6 +302,7 @@ val7	.req	lr
 val8	.req	ip
 #endif
 
+.align	2
 .globl	SYM(SKP_Silk_inner_prod_aligned)
 SYM(SKP_Silk_inner_prod_aligned):
 	stmdb	sp!,  {r4-r10, fp, ip, lr}
@@ -487,6 +490,7 @@ val_8	.req	ip
 #endif
 
  
+.align	2
 .globl	SYM(SKP_Silk_inner_prod16_aligned_64)
 SYM(SKP_Silk_inner_prod16_aligned_64):
 	stmdb	sp!,  {r4-r10, fp, ip, lr}

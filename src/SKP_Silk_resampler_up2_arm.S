@@ -43,6 +43,7 @@ out0				.req	sl
 out1				.req	r0
 
 .set	sp_S, 0 
+.align	2
 .globl	SYM(SKP_Silk_resampler_up2)
 SYM(SKP_Silk_resampler_up2):
 	stmdb	sp!,  {r4-r10, fp, ip, lr}

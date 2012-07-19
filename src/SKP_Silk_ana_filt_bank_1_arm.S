@@ -73,6 +73,7 @@ out_tmphb			.req	_r7
 .set	sp_ptr_out_lo, 4 
 .set	sp_ptr_out_hi, 8 
 
+.align	2
 .globl	SYM(SKP_Silk_ana_filt_bank_1)
 SYM(SKP_Silk_ana_filt_bank_1):
 	stmdb	sp!,  {r4-r10, fp, ip, lr}

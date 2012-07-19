@@ -185,9 +185,38 @@ SKP_INLINE SKP_int32 SKP_SUB_SAT32(SKP_int32 a32, SKP_int32 b32) {
 
 SKP_INLINE SKP_int32 SKP_Silk_CLZ16(SKP_int16 in16)
 {
-	SKP_int32 out32;
-	__asm__ __volatile__ ("movs %0, %1, lsl #16 \n\tclz %0, %0 \n\tmoveq %0, #16" : "=r" (out32) : "r" (in16) : "cc");	
-	return(out32);
+    SKP_int32 out32 = 0;
+    if( in16 == 0 ) {
+        return 16;
+    }
+    /* test nibbles */
+    if( in16 & 0xFF00 ) {
+        if( in16 & 0xF000 ) {
+            in16 >>= 12;
+        } else {
+            out32 += 4;
+            in16 >>= 8;
+        }
+    } else {
+        if( in16 & 0xFFF0 ) {
+            out32 += 8;
+            in16 >>= 4;
+        } else {
+            out32 += 12;
+        }
+    }
+    /* test bits and return */
+    if( in16 & 0xC ) {
+        if( in16 & 0x8 )
+            return out32 + 0;
+        else
+            return out32 + 1;
+    } else {
+        if( in16 & 0xE )
+            return out32 + 2;
+        else
+            return out32 + 3;
+    }
 }
 
 SKP_INLINE SKP_int32 SKP_Silk_CLZ32(SKP_int32 in32)

@@ -40,6 +40,7 @@ val_mul_ret			.req	r0
 val_add_ret			.req	r3
 const1				.req	r1
 
+.align	2
 .globl	SYM(SKP_Silk_lin2log)
 SYM(SKP_Silk_lin2log):
 	stmdb	sp!,  {r4-r5, fp, ip, lr}

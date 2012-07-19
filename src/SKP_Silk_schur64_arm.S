@@ -65,6 +65,7 @@ order1				.req	r6
 order2				.req	r3
 
 .set	sp_ptr_C, 0 
+.align	2
 .globl	SYM(SKP_Silk_schur64)
 SYM(SKP_Silk_schur64):
 	stmdb	sp!,  {r4-r10, fp, ip, lr}
@@ -106,7 +107,7 @@ SYM(SKP_Silk_schur64):
 	mvn		r0, #0x80000000						/*r0 = 0x7FFF FFFF*/
 	mov		r1, b32_nrm, asr #16				/*SKP_RSHIFT(b32_nrm, 16)*/
 	mov		r0, r0, asr #2
-	bl		SYM(__aeabi_idiv)
+	bl		SYM(__divsi3)
 	smulwb	result, a32_nrm, r0					/*result = SKP_SMULWB(a32_nrm, b32_inv);*/
 	
 	smmul	tmp0, b32_nrm, result				/*SKP_SMMUL(b32_nrm, result)*/
