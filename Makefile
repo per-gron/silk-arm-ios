@@ -16,10 +16,22 @@ LIBPREFIX = lib
 LIBSUFFIX = .a
 OBJSUFFIX = .o
 
-CC     = $(TOOLCHAIN_PREFIX)gcc$(TOOLCHAIN_SUFFIX)
-CXX    = $(TOOLCHAIN_PREFIX)g++$(TOOLCHAIN_SUFFIX)
-AR     = $(TOOLCHAIN_PREFIX)ar
-RANLIB = $(TOOLCHAIN_PREFIX)ranlib
+# sudo xcode-select -switch /Developer
+# sudo xcode-select -switch /Applications/Xcode.app/Contents/Developer
+
+# IPHONE_SDK = /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.3.sdk
+IPHONE_SDK = /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.1.sdk
+
+CFLAGS += -g -arch armv7 -mthumb -isysroot ${IPHONE_SDK}
+LDFLAGS += -Wl,-no_pie -arch armv7 -mthumb -isysroot ${IPHONE_SDK}
+USE_NEON=yes
+
+# CC     = `xcrun -sdk ${IPHONE_SDK} -find gcc-4.2`
+# CXX    = `xcrun -sdk ${IPHONE_SDK} -find g++-4.2`
+CC     = `xcrun -sdk ${IPHONE_SDK} -find clang`
+CXX    = `xcrun -sdk ${IPHONE_SDK} -find clang++`
+AR     = `xcrun -sdk ${IPHONE_SDK} -find ar`
+RANLIB = `xcrun -sdk ${IPHONE_SDK} -find ranlib`
 CP     = $(TOOLCHAIN_PREFIX)cp
 
 cppflags-from-defines 	= $(addprefix -D,$(1))
@@ -86,12 +98,12 @@ LIB_NAME = SKP_SILK_SDK
 TARGET = $(LIBPREFIX)$(LIB_NAME)$(LIBSUFFIX)
 
 SRCS_C = $(wildcard src/*.c) 
-ifneq (,$(TOOLCHAIN_PREFIX))
+#ifneq (,$(TOOLCHAIN_PREFIX))
 	SRCS_S = $(wildcard src/*.S)
 	OBJS := $(patsubst %.c,%$(OBJSUFFIX),$(SRCS_C)) $(patsubst %.S,%$(OBJSUFFIX),$(SRCS_S))
-else
-	OBJS := $(patsubst %.c,%$(OBJSUFFIX),$(SRCS_C))
-endif
+#else
+#	OBJS := $(patsubst %.c,%$(OBJSUFFIX),$(SRCS_C))
+#endif
 
 ENCODER_SRCS_C = test/Encoder.c
 ENCODER_OBJS := $(patsubst %.c,%$(OBJSUFFIX),$(ENCODER_SRCS_C))
