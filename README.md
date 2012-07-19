@@ -1,9 +1,13 @@
 # SILK codec for ARM/iOS
 
 This is a modified version of the SILK 1.0.8 codec with optimized ARM/NEON assembly. Compiling and
-running SILK turned out to be quite of a hassle, so I decided to distribute the results of my work here.
+running SILK turned out to be quite a hassle, so I decided to distribute the results of my work here.
 Note that this is really just a quick&dirty thing, I will not be able to provide any kind of support
 or help about this.
+
+## Patent notice
+
+For more information regarding patents, see [Skype's SILK website](https://developer.skype.com/silk/)
 
 ## How to use
 
