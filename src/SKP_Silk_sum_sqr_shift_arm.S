@@ -45,7 +45,7 @@ SYM(SKP_Silk_sum_sqr_shift):
   mov		idx, r3
   ands		nrg_tmp, r2, #2
   mov		nrg, #0
-  ldrneh	x0, [r2], #2
+  ldrhne	x0, [r2], #2
   smulbbne	nrg, x0, x0
   subne		idx, idx, #1
 

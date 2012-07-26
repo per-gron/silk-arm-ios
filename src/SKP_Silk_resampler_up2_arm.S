@@ -89,7 +89,7 @@ SYM(SKP_Silk_resampler_up2):
 	ssat	out1, #16, out1, asr #10
 #endif	
 	subs	r3, r3, #1
-	ldrgtsh	in, [r2], #2
+	ldrshgt	in, [r2], #2
 	strh	out0, [r1], #2
 	strh	out1, [r1], #2
 	//stmia	r1!, {out0, out1}

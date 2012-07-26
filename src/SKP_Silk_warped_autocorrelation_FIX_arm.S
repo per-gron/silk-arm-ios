@@ -194,7 +194,7 @@ SYM(SKP_Silk_warped_autocorrelation_FIX):
 	orr		state_QS1, r0, r1, lsl tmp3
 	mov		r2, r2, lsr tmp4
 	orr		state_QS2, r2, r3, lsl tmp3
-	ldmgtia		corr_QC_ptr!, {r0, r1, r2, r3}		
+	ldmiagt		corr_QC_ptr!, {r0, r1, r2, r3}		
 	stmia		r4!, {state_QS1, state_QS2}
 	bgt		4b
 	add		sp, sp, #216

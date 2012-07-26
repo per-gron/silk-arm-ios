@@ -148,13 +148,13 @@ SYM(SKP_Silk_ana_filt_bank_1):
 	strh	out_tmplb,  [ptr_out_lo], #2
 	strh	out_tmphb,  [ptr_out_hi], #2
 	cmp		out_tmpla,  val_const2
-	strgth	val_const3, [ptr_out_lo, #-2]
+	strhgt	val_const3, [ptr_out_lo, #-2]
 	cmn		out_tmpla,  val_const2
-	strlth	val_const4, [ptr_out_lo, #-2]
+	strhlt	val_const4, [ptr_out_lo, #-2]
 	cmp		out_tmpha,  val_const2
-	strgth	val_const3, [ptr_out_hi, #-2]
+	strhgt	val_const3, [ptr_out_hi, #-2]
 	cmn		out_tmpha,  val_const2
-	strlth	val_const4, [ptr_out_hi, #-2]
+	strhlt	val_const4, [ptr_out_hi, #-2]
 	subs	idx_k2, idx_k2, #1
 	bgt		1b
 	

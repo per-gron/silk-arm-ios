@@ -113,10 +113,10 @@ SYM(SKP_Silk_resampler_private_down_FIR_INTERPOL0):
 		ldr		tmp0, [sp, #sp_inc]
 		movlt	out, #0x8000
 		cmp		ind, tmp1
-		ldmltia	tmpptr, {val0, val1}
+		ldmialt	tmpptr, {val0, val1}
 		strh	out, [r0], #2
 		add		tmpptr, tmpptr, #40
-		ldmltia	tmpptr, {val2, val3}
+		ldmialt	tmpptr, {val2, val3}
 		blt		0b
 1:		
 	add		sp, sp, #8

@@ -73,8 +73,8 @@ SYM(SKP_Silk_resampler_down2):
 	qadd		out32, out32, ip
 	subs		r3, r3, #1
 	ssat		out32, #16, out32, asr #11
-	ldrgtsh		in0, [r2], #2
-	ldrgtsh		in1, [r2], #2
+	ldrshgt		in0, [r2], #2
+	ldrshgt		in1, [r2], #2
 #else
 	qadd		out32, out32, ip
 	cmp		out32, #0x8000000
@@ -84,8 +84,8 @@ SYM(SKP_Silk_resampler_down2):
 	movlt		out32, #0x8000000
 	subs		r3, r3, #1
 	mov		out32, out32, asr #11
-	ldrgtsh		in0, [r2], #2	
-	ldrgtsh		in1, [r2], #2
+	ldrshgt		in0, [r2], #2	
+	ldrshgt		in1, [r2], #2
 #endif	
 	
 	strh		out32, [r1], #2

@@ -58,7 +58,7 @@ SYM(SKP_Silk_allpass_int):
 	subs		len, len, #2
 	sub			Y2, ink2, S00
 	smlawt		outk2, Y2, A, ink2
-	ldmgtia		r0!, {ink1,ink2}
+	ldmiagt		r0!, {ink1,ink2}
 	add			S00, Y2, outk2
 	stmia		r3!, {outk1, outk2}
 	bgt			0b
@@ -77,7 +77,7 @@ SYM(SKP_Silk_allpass_int):
 	subs		len, len, #2
 	sub			Y2, ink2, S00
 	smlawt		outk2, Y2, A, S00
-	ldmgtia		r0!, {ink1,ink2}
+	ldmiagt		r0!, {ink1,ink2}
 	add			S00, Y2, outk2
 	stmia		r3!, {outk1, outk2}
 	bgt			1b

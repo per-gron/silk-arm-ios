@@ -140,7 +140,7 @@ END_MACRO
 #define QARG0			q\arg0
 #define QARG1			q\arg1
 
-MACRO CHECK_ABS	ARG0_in, ARG1_in
+MACRO CHECK_ABS
 	.set ARG0, ARG1
 END_MACRO
 #endif

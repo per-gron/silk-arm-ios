@@ -353,8 +353,8 @@ SYM(SKP_Silk_inner_prod_aligned):
 	SKP_SMLAD	sum, val3, val4, sum
 	SKP_SMLAD	sum, val5, val6, sum
 	SKP_SMLAD	sum, val7, val8, sum
-	ldmgtia	val_p1!, {val1, val3, val5, val7}
-	ldmgtia	val_p2!, {val2, val4, val6, val8}
+	ldmiagt	val_p1!, {val1, val3, val5, val7}
+	ldmiagt	val_p2!, {val2, val4, val6, val8}
 	bgt		0b	
 	ldmia	sp!,  {r4-r10, fp, ip, pc}
 
@@ -542,8 +542,8 @@ SYM(SKP_Silk_inner_prod16_aligned_64):
 	SKP_SMLALD	sumLo, sumHi, val3, val4
 	SKP_SMLALD	sumLo, sumHi, val_5, val_6
 	SKP_SMLALD	sumLo, sumHi, val_7, val_8
-	ldmgtia		val_p3!, {val1, val3, val_5, val_7}
-	ldmgtia		val_p2!, {val2, val4, val_6, val_8}
+	ldmiagt		val_p3!, {val1, val3, val_5, val_7}
+	ldmiagt		val_p2!, {val2, val4, val_6, val_8}
 	bgt			0b	
 	ldmia	sp!,  {r4-r10, fp, ip, pc}
 

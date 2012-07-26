@@ -104,7 +104,7 @@ SYM(SKP_Silk_resampler_private_ARMA4):
 #endif
 	subs	len, len, #1
 	strh	out1, [r1], #2
-	ldrgtsh	in, [r2], #2
+	ldrshgt	in, [r2], #2
 	bgt	0b
 	
 	ldr	r0, [sp, #sp_S]
