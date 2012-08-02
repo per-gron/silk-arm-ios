@@ -25,7 +25,10 @@ ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 ***********************************************************************/
 
-#if defined(__arm__)
+// This code is disabled as of August 2nd 2012, because it produces
+// a horrible noise when encoding on iPhone 4. (The problem is not
+// present on iPhone 3GS, iPhone 4S, iPad 2 or iPad 3rd gen)
+#if 0 && defined(__arm__)
 
 #include "SKP_Silk_AsmPreproc.h"
 #if EMBEDDED_ARM>=6
