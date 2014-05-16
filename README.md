@@ -1,9 +1,19 @@
+# Warning: This is old code
+
+SILK has been superseded by [Opus](http://opus-codec.org/). Please see [Skype's blog post](http://blogs.skype.com/2012/09/12/skype-and-a-new-audio-codec/).
+
 # SILK codec for ARM/iOS
 
 This is a modified version of the SILK 1.0.8 codec with optimized ARM/NEON assembly. Compiling and
 running SILK turned out to be quite a hassle, so I decided to distribute the results of my work here.
 Note that this is really just a quick&dirty thing, I will not be able to provide any kind of support
 or help about this.
+
+## 64 bit ARM compatibilty
+
+This code does not compile as 64 bit ARM, at least not the optimized assembly version. I haven't
+investigated why, but I believe it's simply because there is no 64 bit ARM assembly implementation.
+There will probably never be one either; SILK has been superseded by [Opus](http://opus-codec.org/). Please see [Skype's blog post](http://blogs.skype.com/2012/09/12/skype-and-a-new-audio-codec/)..
 
 ## Patent notice
 
